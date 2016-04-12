@@ -1,0 +1,165 @@
+@extends(config('path_access.private').'.layout')
+@section('appAngular')
+<!--<script src="modules/order/controllers/mainCtrl.js"></script>
+<script src="modules/order/app.js"></script>
+-->
+<script src="modules/components/angular-messages.js"></script> 
+<script src="modules/orderItems/controllers/mainCtrl.js"></script> <!-- load our controller -->
+<!--<script src="modules/dashboard/services/commentService.js"></script> <!-- load our service -->
+<script src="modules/orderItems/app.js"></script> <!-- load our application -->
+@endsection
+@section('sidebar')
+    @include(config('path_access.private').'.dashboard.admin.sidebar')
+@endsection
+@section('content')
+<div id="content" class="content">
+	<div ng-app="order" ng-controller="orderController " >
+		<div class="row">
+					    <div class="col-md-3 ">
+					       
+						     <div class="panel-body">
+			                            <form class="form" role="form" >
+			                             
+			                                    <legend>Agrega pedido</legend>
+			                                  
+			                                    <label for="exampleInputPassword1">Codigo</label>
+			                                    <div class="input-group">
+					                                <input type="text" class="form-control" ng-model="coder"  placeholder="Ingrese codigo del reten">
+					                                <span href="#modal-dialog" class="input-group-addon btn btn-success" data-toggle="modal"><i class="fa fa-search fa-2x"></i></span>
+					                            </div>
+			                                     
+			                                    <div class="form-group">
+			                                        <label for="exampleInputPassword1">Cantidad</label>
+			                                        <input type="number" class="form-control" ng-model="quantity" placeholder="Ingrese cantidad">
+			                                    </div>
+			                                    <div class="form-group">	
+				                                 
+				                                    <a href ng:click="addRow()" class="btn btn-sm btn-inverse"> <i class="fa fa-plus m-r-5"></i>Agregar</a>
+			                                   </div>
+			                                <!--ng-submit="addRow()"-->
+			                            </form>
+		 <form name="userForm" novalidate>
+			<div class="form-group"  
+          		  ng-class="{'has-error has-feedback': userForm.email.$touched && userForm.email.$invalid , 
+                 			 'has-success has-feedback': userForm.email.$dirty && userForm.email.$valid }">
+				<label>Text</label>
+      			<input type="text" name="email" class="form-control" 
+        			   ng-model="email"
+          			   ng-minlength="5"
+       				   ng-maxlength="20"
+        			   required>
+				<div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+        			<!--<p ng-message="required">This field is required</p>
+					<p ng-message="minlength">This field is too short</p>
+					<p ng-message="maxlength">This field is too long</p>-->
+					 <div ng-messages-include="modules/partials/messages.html"></div>
+				</div>
+
+	            <span ng-show="userForm.email.$dirty && userForm.email.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+	            <span ng-show="userForm.email.$touched && userForm.email.$invalid" class="glyphicon glyphicon-remove  form-control-feedback"></span>
+			</div>
+    	</form>
+
+			                 </div>
+						</div>
+
+					    <div class="col-md-9 ">
+		     
+						    <div class="panel panel-inverse" >
+			                        <div class="panel-heading">
+			        
+			                            <h4 class="panel-title">Items</h4>
+			                        </div>
+			                        <div class="panel-body">
+										<div class="table-responsive">
+											  <table class="table">
+						                            <thead>
+						                                <tr>
+						                                    <th >
+						                                    	Codigo
+						                                    </th>
+						                                    <th>
+						                                       Cantidad 
+						                                    </th>
+						                                    <th>
+						                                       Precio /unid
+						                                    </th>
+						                                    <th>
+						                                       Precio total
+						                                    </th>
+						                                     <th>
+						                                       Opciones
+						                                    </th>
+						                                </tr>
+						                            </thead>
+						                            <tbody>
+						                            	<tr ng-repeat="item in items">
+						                            		
+															<td>
+
+																<a href="#" id="username" data-type="text" 
+																	data-pk="1" data-title="Enter" class="editable editable-click">@{{item.code}}  </a>
+															</td>
+															<td>@{{item.quantity}}
+															</td>
+															<td>
+															@{{item.price}}
+															</td>
+															<td>@{{item.priceTotal}}
+															</td>
+						                                    <td >
+
+
+						                                       
+															
+															<a href ng:click="removeItem($index)"><i class="fa fa-trash-o fa-2x"></i></a>
+						                                    </td>
+
+						                                </tr>
+						                              
+						                                
+						                            </tbody>
+					                        	</table>
+											
+										</div>
+										
+									</div>
+							</div>
+					    <!-- end col-10 -->
+						</div>
+		</div>
+				<!-- end row -->
+			
+			<div class="modal fade" id="modal-dialog" aria-hidden="true" style="display: none;">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+												<h4 class="modal-title">Modal Dialog</h4>
+											</div>
+											<div class="modal-body">
+												Modal body content here...
+											</div>
+											<div class="modal-footer">
+												<a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+												<a href="javascript:;" class="btn btn-sm btn-success">Action</a>
+											</div>
+										</div>
+									</div>
+			</div>
+	</div>
+</div>
+
+
+@endsection
+@section('ownerScript')
+
+<script>
+
+	$(document).ready(function() {
+			App.init();
+			
+	});
+</script>
+
+@endsection
