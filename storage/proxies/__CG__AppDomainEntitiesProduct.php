@@ -64,10 +64,10 @@ class Product extends \App\Domain\Entities\Product implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'price', 'measurement', 'type', 'brand', 'id', 'orderLines', 'accounts'];
+            return ['__isInitialized__', 'price', 'measurement', 'type', 'brand', 'detail', 'id', 'orderLines', 'accounts'];
         }
 
-        return ['__isInitialized__', 'price', 'measurement', 'type', 'brand', 'id', 'orderLines', 'accounts'];
+        return ['__isInitialized__', 'price', 'measurement', 'type', 'brand', 'detail', 'id', 'orderLines', 'accounts'];
     }
 
     /**
@@ -435,6 +435,17 @@ class Product extends \App\Domain\Entities\Product implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFullName', []);
 
         return parent::getFullName();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getProductDetail()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getProductDetail', []);
+
+        return parent::getProductDetail();
     }
 
     /**

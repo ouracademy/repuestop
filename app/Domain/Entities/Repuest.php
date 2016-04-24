@@ -4,14 +4,16 @@ namespace App\Domain\Entities;
 
 use Doctrine\ORM\Mapping as ORM;
 use App\Domain\Entities\Measurement;
-use App\Domain\Entities\Product;
+use App\Domain\Entities\ProductDetail;
+
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="repuests")
+ * @ORM\Table(name="detail_retens")
  * @ORM\HasLifecycleCallbacks()
  */
-class Repuest extends Product{
+ 
+class Repuest extends ProductDetail{
 
  
 
@@ -50,10 +52,7 @@ class Repuest extends Product{
      */
     protected $modelApplication;
 
-    /**
-     * @ORM\Column(name="brand",type="string",nullable=true)
-     */
-    protected $brand;
+ 
 
     /**
      * @ORM\Column(name="identification",type="string",nullable=true)
@@ -65,25 +64,13 @@ class Repuest extends Product{
      */
     protected $type;
 
-    /**
-     * @ORM\Column(name="price",type="decimal",nullable=true)
-     */
-    protected $price;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="Measurement", inversedBy="products")
-     * @ORM\JoinColumn(name="measurement_id", referencedColumnName="id")
-     * @var Measurement
-     */
-    protected $measurement;
+
 
     public function __construct() {
         
     }
 
-    public function getId() {
-        return $this->id;
-    }
 
     public function setCodeInter($codeInter) {
         $this->codeInter = $codeInter;
@@ -164,16 +151,13 @@ class Repuest extends Product{
     public function getModelApplication() {
         return $this->modelApplication;
     }
-    public function setPrice($price) {
-        $this->price = $price;
-    }
 
-    public function getPrice() {
-        return $this->price;
-    }
-
-    public function getMeasurement() {
-        return $this->measurement;
+    public function getFullName() {
+        $fullName = "Reten"." ".$this->codeOwner;
+        if (!is_null($this->codeInter)) {
+            $fullName = $fullName . "\\" . $this->codeInter;
+        }
+        return $fullName;
     }
 
 }

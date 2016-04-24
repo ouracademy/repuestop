@@ -2,9 +2,9 @@
 
 namespace App\Application;
 
-use App\Domain\Repository\ProductRepository;
-use App\Interfaces\Assembler\ProductAssembler;
+use App\Domain\Repository\InstrumentRepository;
 use App\Interfaces\Assembler\BrandAssembler;
+use App\Interfaces\Assembler\InstrumentAssembler;
 use App\Domain\Repository\BrandRepository;
 
 class CatalogService {
@@ -13,14 +13,15 @@ class CatalogService {
     private $brandRepository;
     private $assembler;
 
-    public function __construct(ProductRepository $repository, BrandRepository $brandRepository, ProductAssembler $assembler) {
+    public function __construct(InstrumentRepository $repository, 
+                                BrandRepository $brandRepository
+                                ) {
         $this->productRepository = $repository;
         $this->brandRepository = $brandRepository;
-        $this->assembler = $assembler;
     }
 
     private function getAllProducts() {
-        return $this->assemble($this->productRepository->getAll(),new ProductAssembler());
+        return $this->assemble($this->productRepository->getAll(),new InstrumentAssembler());
     }
 
     private function getAllBrands() {
@@ -32,7 +33,7 @@ class CatalogService {
             'products' => $this->getAllProducts(),
             'brands'=>$this->getAllBrands()
         );
-        return json_encode($data);
+        return $data;
     }
 
     private function assemble($collection, $assembler) {

@@ -64,10 +64,10 @@ class Repuest extends \App\Domain\Entities\Repuest implements \Doctrine\ORM\Prox
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'codeInter', 'codeOwner', 'designType', 'gireType', 'application', 'brandApplication', 'modelApplication', 'brand', 'identification', 'type', 'price', 'measurement', 'id', 'orderLines', 'accounts'];
+            return ['__isInitialized__', 'codeInter', 'codeOwner', 'designType', 'gireType', 'application', 'brandApplication', 'modelApplication', 'identification', 'type', 'product'];
         }
 
-        return ['__isInitialized__', 'codeInter', 'codeOwner', 'designType', 'gireType', 'application', 'brandApplication', 'modelApplication', 'brand', 'identification', 'type', 'price', 'measurement', 'id', 'orderLines', 'accounts'];
+        return ['__isInitialized__', 'codeInter', 'codeOwner', 'designType', 'gireType', 'application', 'brandApplication', 'modelApplication', 'identification', 'type', 'product'];
     }
 
     /**
@@ -173,21 +173,6 @@ class Repuest extends \App\Domain\Entities\Repuest implements \Doctrine\ORM\Prox
     }
 
     
-    /**
-     * {@inheritDoc}
-     */
-    public function getId()
-    {
-        if ($this->__isInitialized__ === false) {
-            return (int)  parent::getId();
-        }
-
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getId', []);
-
-        return parent::getId();
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -406,61 +391,6 @@ class Repuest extends \App\Domain\Entities\Repuest implements \Doctrine\ORM\Prox
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getModelApplication', []);
 
         return parent::getModelApplication();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setPrice($price)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrice', [$price]);
-
-        return parent::setPrice($price);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getPrice()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrice', []);
-
-        return parent::getPrice();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getMeasurement()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMeasurement', []);
-
-        return parent::getMeasurement();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getCurrentPrice()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCurrentPrice', []);
-
-        return parent::getCurrentPrice();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getFullName()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFullName', []);
-
-        return parent::getFullName();
     }
 
 }

@@ -2,28 +2,28 @@
 
 namespace App\Interfaces\Assembler;
 
-use App\Interfaces\Serializables\Product as DTO;
+use App\Interfaces\Serializables\Instrument as DTO;
 
 /**
  *
  * @author pc
  */
-class ProductAssembler {
+class InstrumentAssembler {
 
     public function toDTO($item) {
         return new DTO(
                 $item->getId(),
                 $item->getBrand()->getName(),
-                $item->getCodeInter(), 
-                $item->getCodeOwner(),
-                $item->getDesignType() , 
-                $item->getGireType(),    
+                $item->getProductDetail()->getCodeInter(), 
+                $item->getProductDetail()->getCodeOwner(),
+                $item->getProductDetail()->getDesignType() , 
+                $item->getProductDetail()->getGireType(),    
                 $item->getMeasurement()->getInterior(),
                 $item->getMeasurement()->getExterior(),
                 $item->getMeasurement()->getHeight(),
-                $item->getApplication(), 
+                $item->getProductDetail()->getApplication(), 
                 $item->getPrice()
-             
+              
         );
     }
 

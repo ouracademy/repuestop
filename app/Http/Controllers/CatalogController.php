@@ -12,8 +12,10 @@ class CatalogController extends Controller
     {
         $this->catalog=$catalog;
     }
-    public function index(){
-       return  $this->catalog->getData(); 
+    
+    public function index()
+    {
+       return  response()->json($this->catalog->getData()); 
     }
  
      

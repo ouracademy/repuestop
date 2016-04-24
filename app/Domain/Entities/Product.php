@@ -7,22 +7,15 @@ use App\Domain\Entities\Measurement;
 use App\Domain\Entities\Brand;
 use App\Domain\Entities\Type;
 use App\Domain\Entities\Instrument;
+use App\Domain\Entities\ProductDetail;
 
 
 /**
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="products")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="type_id", type="integer")
- * @ORM\DiscriminatorMap({"1" = "Repuest"})
-
+ * @ORM\HasLifecycleCallbacks()
  */
  class Product extends Instrument {
-
-   
-
- 
 
     /**
      * @ORM\Column(name="price",type="decimal",nullable=true)
@@ -47,6 +40,14 @@ use App\Domain\Entities\Instrument;
      * @var Brand
      */
     protected $brand;
+    
+  
+    
+    /**
+    * @ORM\OneToOne(targetEntity="ProductDetail", mappedBy="product", cascade={"persist"})
+    * @var ProductDetail
+    */
+    protected $detail;
     
     
     
@@ -139,7 +140,9 @@ use App\Domain\Entities\Instrument;
     public function setPrice($price) {
         $this->price = $price;
     }
-
+    public function getPrice(){
+        return $this->price;
+    }
     public function getCurrentPrice() {
         return $this->price;
     }
@@ -149,7 +152,10 @@ use App\Domain\Entities\Instrument;
     }
 
     public function getFullName() {
-        return $this->type->getName();
+        return $this->detail->getFullName();
+    }
+    public function getProductDetail(){
+        return $this->detail;
     }
 
 }

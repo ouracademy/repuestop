@@ -36,6 +36,7 @@ Route::resource('reporter', 'InProcess\ReporterController');
 Route::resource('refactor', 'Samples\RefactorDBController2');
 
 Route::resource('orderData', 'Order\OrderDataController');
+Route::resource('accountData', 'Accounts\AccountDataController');
 
 
 
@@ -46,6 +47,7 @@ Route::resource('orderData', 'Order\OrderDataController');
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
     Route::resource('order', 'Order\OrderController');
+    Route::resource('account', 'Accounts\AccountController');
     Route::resource('dashboard', 'Dashboard\CustomerController');
     Route::resource('dashboardAdmin', 'Dashboard\AdminController');
     Route::get('showOrder', 'Order\OrderController@showOrder');
@@ -53,6 +55,6 @@ Route::group(['middleware' => 'web'], function () {
 Route::resource('catalog', 'CatalogController');
 Route::resource('person', 'Parties\PersonController');
 Route::resource('company', 'Parties\CompanyController');
-Route::resource('stock', 'Accounts\StockController');
+
 Route::resource('transference', 'TransferenceController');
 Route::get('verificateIdentificacition', 'Parties\PartyController@verificate');
