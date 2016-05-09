@@ -1,0 +1,1 @@
+var App = angular.module('orderLine', ['orderLineCtrl','ngMessages','orderService','checklist-model']);

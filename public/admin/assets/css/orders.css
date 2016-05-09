@@ -1,0 +1,85 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01-mar-2016, 16:49:18
+    Author     : pc
+*/
+     
+.nav-inbox > li > a {
+    padding: 8px 15px;
+}
+.nav-inbox > li > a i {
+    font-size: 14px;
+}
+.table.table-order {
+    line-height: 20px;
+    margin-bottom: 0;
+}
+.order-footer {
+    border-top: 1px solid #ccc;
+    padding: 15px 8px;
+    line-height: 26px;
+}
+.table.table-order .order-header-link {
+    color: #333;
+}
+.table.table-order .order-select {
+    width: 20px;
+    font-size: 14px;
+}
+.table.table-order .order-select a {
+    color: #999;
+}
+.table.table-order .order-btn {
+    color: #ccc;
+    font-size: 14px;
+    margin-right: 15px;
+}
+.table.table-order .order-sender {
+    padding-right: 25px;
+}
+.table.table-order .order-btn + .order-btn {
+    margin-left: -12px;
+}
+.table.table-order .order-btn:hover,
+.table.table-order .order-btn:focus {
+    color: #999;
+}
+.table.table-order tr:hover td {
+    background: #fafafa;
+}
+.table.table-order tr.active td.order-select i:before,
+.table.table-order tr.active th.order-select i:before {
+    content: '\f14a';
+}
+.table.table-order thead tr.active th {
+    background: none;
+}
+.order-btn-row {
+    margin-bottom: 15px;
+}
+.order-btn-row .btn + .btn {
+    margin-left: 5px;
+}
+.order-content {
+    background: #fff;
+    padding: 15px;
+}
+
+.option-top .navbar-right{
+    margin-top: 15px;
+    margin-right: 10px;
+    padding-bottom: 20px;
+}
+.option-top li  a{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.option-top li  {
+    padding-right: 3px;
+    
+}
+
