@@ -13,7 +13,7 @@
 @section('content')
 <div id="content" class="content">
 
-    <div ng-app="orderLine" ng-controller="orderLineController" data-ng-init="init({{$id}},'{{url('')}}')" >
+    <div ng-app="orderLine" ng-controller="orderLineController" data-ng-init="init({{$id}},'{{url('orderData')}}')" >
         <div class="row">
             <div class="col-md-3 ">
 

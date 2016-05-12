@@ -20,9 +20,9 @@
                     <span> ordenes de Venta</span>
                 </a>
                 <ul class="sub-menu">
-                    <li><a href="email_inbox.html">Nuevas</a></li>
-                    <li><a href="email_inbox_v2.html">En Proceso</a></li>
-                    <li><a href="email_detail.html">Por Entregar</a></li>
+                    <li><a href="#">Nuevas</a></li>
+                    <li><a href="#">En Proceso</a></li>
+                    <li><a href="#">Por Entregar</a></li>
 
                 </ul>
             </li>

@@ -12,13 +12,14 @@
 @endsection
 @section('content')
 <div id="content" class="content">
-	<div ng-app="order" ng-controller="orderController" >
+
+	<div ng-app="order" ng-controller="orderController" data-ng-init="init('{{url('order')}}')" >
 		<div class="row">
                     <div class="p-20">
 			<!-- begin row -->
 			<div class="row">
 			    <!-- begin col-2 -->
-                            @include(config('path_access.private').'.order.partials.optionsLeft')
+                         
 			    <!-- end col-2 -->
 			    <!-- begin col-10 -->
 			    <div class="col-md-10">

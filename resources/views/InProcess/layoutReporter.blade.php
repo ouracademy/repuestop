@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <!--[if IE 9]> <html lang="es" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
-<html lang="es">
+<html lang="en">
 <!--<![endif]-->
 
 <head>
 
-    @include(config('path_access.public').'.head')
+    @include(config('path_access.public').'.partials.head')
 </head>
 
 <!-- body classes:  -->
@@ -24,7 +24,7 @@
 </div>
 <!-- page-wrapper end -->
 
-@include(config('path_access.public').'.script')
+@include(config('path_access.public').'.partials.script')
 
 <script>
   @yield('ownerScript')

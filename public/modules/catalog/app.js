@@ -4,6 +4,8 @@ var App = angular.module('repuest',
             'repuestService', 
             'orderService',
             'partyService',
+            'companyService',
+            'personService',
             'filters', 
             'mgo-angular-wizard'
         ]);

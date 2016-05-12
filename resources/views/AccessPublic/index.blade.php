@@ -11,6 +11,8 @@
 <script src="modules/services/repuestService.js"></script> 
 <script src="modules/services/orderService.js"></script> 
 <script src="modules/services/partyService.js"></script> 
+<script src="modules/services/personService.js"></script> 
+<script src="modules/services/companyService.js"></script> 
 <script src="modules/catalog/app.js"></script> <!-- load our application-->
 <script src="modules/catalog/controllers/mainCtrl.js"></script> <!-- load our controller -->
 @endsection
@@ -113,7 +115,7 @@
                                                 <thead class="gray">
                                                     <tr>
                                                         <th>Marca</th>
-                                                        <th>Codigo Inter</th>
+                                                        <th>Codigo Internacional</th>
                                                         <th>Codigo Propio</th>
                                                         <th>Diseño</th>
                                                         <th>Giro</th>
@@ -255,7 +257,9 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
+                                        <div class="text-center">
+                                           <a class="btn btn-default" href="{{ url('reporter') }}">Genera Reporte</a>
+                                        </div>
 
                                         <div class="text-center">
                                             <div class="panel-body ">	

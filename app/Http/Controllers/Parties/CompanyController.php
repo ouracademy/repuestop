@@ -42,5 +42,36 @@ class CompanyController extends Controller {
     public function index() {
         return $this->service->getAll();
     }
+    
+    public function store(Request $request){
+        $data = array(
+            'name' => $request->input('name'),
+            'identification' => $request->input('identification'),
+            'email' => $request->input('email'),
+            'telephone' => $request->input('telephone'),
+            'address' => $request->input('address'),
+        );
+         $validator = Validator::make($data, [
+                    'identification' => 'required|unique:App\Domain\Entities\Company,ruc|size:11',
+                    'email' => 'required|email|unique:App\Domain\Entities\Party,email',
+                    'telephone' => 'required|regex:/(\d*)/',
+                    'name' => 'required|regex:/(\b[^\d\W]+\b)/|unique:App\Domain\Entities\Company,name',
+                    'address' => 'required'
+                     
+                    
+        ]);
+       
+        if ($validator->fails()) {
+            return json_encode(["errors" =>  $validator->getMessageBag()->toArray()]);
+        }
+        $this->service->store(
+                $data['name'],
+                $data['identification'],
+                $data['email'],
+                $data['telephone'],
+                $data['address']
+                ); 
+        return json_encode(["messageOK" => 'Se registro con exito los datos']);
+    }
 
 }

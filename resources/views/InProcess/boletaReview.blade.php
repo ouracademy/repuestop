@@ -1,4 +1,4 @@
-@extends('layoutReporter')
+@extends('InProcess.layoutReporter')
 @section('content')
 			
 		

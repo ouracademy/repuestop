@@ -31,8 +31,7 @@ Route::get('/', function () {
   |
  */
 Route::resource('test', 'JsonController');
-//Route::resource('adquire', 'AdquireController');
-Route::resource('reporter', 'InProcess\ReporterController');
+Route::resource('reporter', 'Reports\ReporterController');
 Route::resource('refactor', 'Samples\RefactorDBController2');
 
 Route::resource('orderData', 'Order\OrderDataController');
@@ -53,6 +52,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('showOrder', 'Order\OrderController@showOrder');
 });
 Route::resource('catalog', 'CatalogController');
+
 Route::resource('person', 'Parties\PersonController');
 Route::resource('company', 'Parties\CompanyController');
 

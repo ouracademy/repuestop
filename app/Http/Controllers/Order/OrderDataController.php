@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Application\RegisterOrder;
 use App\Application\GetterOrders;
 
+use Illuminate\Http\Request;
+
 class OrderDataController extends Controller {
 
     private $registerService;

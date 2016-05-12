@@ -6,7 +6,7 @@
 
 <head>
 
-    @include(config('path_access.public').'.head')
+    @include(config('path_access.public').'.partials.head')
 </head>
 
 <!-- body classes:  -->
@@ -23,13 +23,13 @@
 <!-- page wrapper start -->
 <!-- ================ -->
 <div class="page-wrapper">
-    @include(config('path_access.public').'.header')
+    @include(config('path_access.public').'.partials.header')
 
     @yield('content')
 </div>
 <!-- page-wrapper end -->
 
-@include(config('path_access.public').'.script')
+@include(config('path_access.public').'.partials.script')
 
 <script>
   @yield('ownerScript')

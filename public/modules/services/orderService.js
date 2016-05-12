@@ -17,7 +17,7 @@ angular.module('orderService', [])
                 getOrderLines: function (idOrder, urlBase) {
                     return $http({
                         method: 'GET',
-                        url: 'orderData/'+idOrder
+                        url: urlBase+'/'+idOrder
                        
                     });
                 },

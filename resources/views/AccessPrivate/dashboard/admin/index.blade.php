@@ -78,7 +78,7 @@
 <script>
     $(document).ready(function () {
         App.init();
-        DashboardV2.init();
+       // DashboardV2.init();
     });
 </script>
 @endsection

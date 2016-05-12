@@ -14,7 +14,7 @@ class OrderLineAssembler {
         return new DTO(
                 $item->getInstrument()->getFullName(),
                 $item->getQuantity(),
-                $item->getUnit()->getSymbol(),
+                'U',
                 $item->getOfferedPrice(),
                 $item->getStatus(),
                 $item->getType()  

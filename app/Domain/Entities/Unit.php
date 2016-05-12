@@ -59,7 +59,7 @@ class Unit {
 
     public function getSymbol() 
     {
-        return $this->symbol;
+        return $this->symbol+"";
     }
 
 }

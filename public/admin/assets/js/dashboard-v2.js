@@ -247,7 +247,7 @@ var DashboardV2 = function () {
             handleVisitorsLineChart();
             handleVisitorsDonutChart();
             handleVisitorsVectorMap();
-            handleScheduleCalendar();
+           handleScheduleCalendar();
             handleDashboardGritterNotification();
         }
     };

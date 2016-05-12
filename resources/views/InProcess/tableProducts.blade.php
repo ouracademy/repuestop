@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('InProcess.layout')
 @section('content')
 			<!-- section start -->
 			<!-- ================ -->
